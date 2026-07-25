@@ -98,12 +98,18 @@ No build step is needed; `vercel.json` just sets PWA-friendly headers.
   vercel --prod   # promote to the production URL
   ```
 
-### GitHub Pages (served from /WordsFromWord/)
+### GitHub Pages (served from /WordsFromWord/) — optional fallback
 
-`.github/workflows/deploy-pages.yml` publishes the site on every push. Enable
-it once under **Settings → Pages → Build and deployment → Source: GitHub
-Actions** (the workflow also tries to enable this automatically). The URL is
-`https://<user>.github.io/WordsFromWord/`.
+`.github/workflows/deploy-pages.yml` can publish the site to Pages, but it's
+**manual-only** (Vercel is the primary host). To use it:
+
+1. Enable Pages once under **Settings → Pages → Build and deployment →
+   Source: GitHub Actions**.
+2. Run the workflow from the **Actions** tab → *Deploy to GitHub Pages* →
+   *Run workflow* (or add a `push:` trigger back to the workflow to
+   auto-deploy).
+
+The URL is `https://<user>.github.io/WordsFromWord/`.
 
 Both hosts serve over HTTPS, so the install prompt and offline caching work.
 
