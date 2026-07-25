@@ -82,6 +82,8 @@ body {
 .brand-text h1 { font-size: 21px; margin: 0; letter-spacing: -0.02em; font-weight: 800; }
 .brand-text p { margin: 2px 0 0; font-size: 13px; color: var(--text-dim); }
 
+.topbar-actions { display: flex; align-items: center; gap: 10px; }
+
 .icon-btn {
   border: 1px solid var(--border); background: var(--surface);
   width: 42px; height: 42px; border-radius: 12px; cursor: pointer;

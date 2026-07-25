@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Words From Word</title>
   <meta name="description" content="Form as many words as you can from a single long word." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#f4f6fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e16" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Words From Word" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -18,9 +30,14 @@
           <p>Make as many words as you can from one long word.</p>
         </div>
       </div>
-      <button id="themeToggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">
-        <span class="theme-icon">🌙</span>
-      </button>
+      <div class="topbar-actions">
+        <button id="installBtn" class="btn btn-primary btn-sm hidden" title="Install this app">
+          <span class="btn-icon">⬇️</span> Install
+        </button>
+        <button id="themeToggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
     </header>
 
     <main class="layout">
@@ -136,5 +153,6 @@
 
   <script src="js/data.js"></script>
   <script src="js/game.js"></script>
+  <script src="js/pwa.js"></script>
 </body>
 </html>

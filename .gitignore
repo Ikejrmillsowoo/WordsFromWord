@@ -1,4 +1,4 @@
 node_modules/
-_test.mjs
+_*.mjs
 *.log
 .DS_Store

@@ -43,25 +43,51 @@ Pick a mode from the tabs at the top of the play card:
 
 ## Running it
 
-No build step and no server required — it's a static site.
+No build step and no dependencies — it's a static site.
 
 ```bash
 # just open the file
 open index.html            # macOS
 xdg-open index.html        # Linux
 
-# …or serve it (nicer, avoids any file:// quirks)
+# …or serve it (needed for the installable/offline PWA features)
 python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
+## Install it (PWA)
+
+The game is a **Progressive Web App**: it can be installed to your phone,
+tablet or desktop and then launches in its own window and **works fully
+offline** (the whole app — including the word list — is cached on first load).
+
+> PWA install and offline require the app to be served over **http(s) or
+> localhost** — opening the file directly with `file://` won't register the
+> service worker. Use `python3 -m http.server` locally, or host it (GitHub
+> Pages, Netlify, etc.).
+
+**Desktop (Chrome / Edge):** open the site, then click **Install** in the app's
+top bar, or use the install icon in the browser's address bar.
+
+**Android (Chrome):** tap the **Install** button, or *⋮ menu → Install app /
+Add to Home screen*.
+
+**iOS / iPadOS (Safari):** tap the **Share** button → **Add to Home Screen**.
+
+Once installed it appears as a normal app icon and opens without browser
+chrome. Because everything is cached, it keeps working with no connection.
+
 ## Project structure
 
 ```
-index.html        # markup / layout
-css/styles.css    # all styling + light/dark theme
-js/data.js        # generated word data (dictionary + source words)
-js/game.js        # game logic, state, persistence, rendering
+index.html             # markup / layout
+css/styles.css         # all styling + light/dark theme
+js/data.js             # generated word data (dictionary + source words)
+js/game.js             # game logic, state, persistence, rendering
+js/pwa.js              # service-worker registration + install button
+sw.js                  # service worker (offline app-shell caching)
+manifest.webmanifest   # PWA manifest (name, icons, colors, display)
+icons/                 # app icons (192/512, maskable, apple-touch, favicons)
 ```
 
 ## How the word data is built
