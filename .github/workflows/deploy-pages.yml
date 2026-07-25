@@ -30,6 +30,9 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Create/enable the Pages site (source = GitHub Actions) if it isn't already.
+          enablement: true
 
       - name: Stage static site
         run: |
