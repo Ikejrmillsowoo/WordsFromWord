@@ -10,11 +10,25 @@ you make as many smaller words (2+ letters) from its letters as you can.
 1. Press **New word** to get a fresh 10–14 letter word.
 2. Type any word you can spell using only those letters (each letter can be
    used at most as many times as it appears in the source word).
-3. Words must be **at least 2 letters** and in the dictionary.
+3. Words must be **at least 3 letters** and in the dictionary.
 4. The header shows how many words are possible for the current word, so you
    always know how many are left to find.
 5. Longer words score more points.
 6. Stuck? **Reveal remaining** shows the words you missed.
+
+## Game modes
+
+Pick a mode from the tabs at the top of the play card:
+
+- **🎯 Practice** — no pressure. Play a word, press *New word* whenever you like.
+- **⏱️ Timed** — a 2-minute countdown. Find as many words as you can before time
+  runs out; your best single-round score is tracked.
+- **📅 Daily** — one word per day, generated deterministically from the date so
+  everyone gets the same word. Your progress is saved and resumes when you come
+  back later in the day.
+- **🔥 Streak** — each word has a target number of words. Hit the target and you
+  advance to the next word with your streak +1. *Skip word* (or failing to
+  reach a target) resets the streak. Your best streak is tracked.
 
 ## Features
 
@@ -64,5 +78,7 @@ js/game.js        # game logic, state, persistence, rendering
 
 ## Data persistence
 
-Progress is stored in `localStorage` under `wfw_state_v1` (and the theme under
-`wfw_theme`). Use the **Reset** button in the history panel to clear it.
+Progress is stored in `localStorage` under `wfw_state_v2` (and the theme under
+`wfw_theme`). This includes your current round, played-word history, past
+rounds, lifetime score, best streak, best timed score and today's daily
+progress. Use the **Reset** button in the history panel to clear it.

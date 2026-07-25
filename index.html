@@ -26,10 +26,20 @@
     <main class="layout">
       <!-- Play column -->
       <section class="card play-card">
+        <div id="modeTabs" class="mode-tabs" role="tablist" aria-label="Game mode">
+          <button class="mode-tab is-active" data-mode="practice" role="tab">🎯 Practice</button>
+          <button class="mode-tab" data-mode="timed" role="tab">⏱️ Timed</button>
+          <button class="mode-tab" data-mode="daily" role="tab">📅 Daily</button>
+          <button class="mode-tab" data-mode="streak" role="tab">🔥 Streak</button>
+        </div>
+
         <div class="play-head">
-          <div class="source-label">Your word</div>
+          <div class="mode-status">
+            <div id="sourceLabel" class="source-label">Your word</div>
+            <div id="modeInfo" class="mode-info hidden"></div>
+          </div>
           <button id="newWordBtn" class="btn btn-primary">
-            <span class="btn-icon">🔀</span> New word
+            <span class="btn-icon">🔀</span> <span id="newWordLabel">New word</span>
           </button>
         </div>
 
@@ -54,7 +64,7 @@
             class="guess-input"
             type="text"
             inputmode="latin"
-            placeholder="Type a word (2+ letters)…"
+            placeholder="Type a word (3+ letters)…"
             aria-label="Type a word you can make"
             disabled
           />

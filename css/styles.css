@@ -102,8 +102,34 @@ body {
 }
 
 /* ---------- Play card ---------- */
-.play-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.mode-tabs { display: flex; gap: 6px; background: var(--surface-2); padding: 5px; border-radius: 14px; margin-bottom: 18px; }
+.mode-tab {
+  flex: 1; border: none; background: transparent; color: var(--text-dim);
+  padding: 10px 6px; border-radius: 10px; font-weight: 700; font-size: 13.5px; cursor: pointer;
+  transition: background .2s, color .2s, transform .1s; white-space: nowrap;
+}
+.mode-tab:hover { color: var(--text); }
+.mode-tab.is-active { background: var(--surface); color: var(--text); box-shadow: var(--shadow-sm); }
+@media (max-width: 460px) { .mode-tab { font-size: 12px; padding: 9px 4px; } }
+
+.play-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.mode-status { display: flex; flex-direction: column; gap: 6px; }
 .source-label { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); font-weight: 700; }
+
+.mode-info { font-size: 14px; }
+.mode-info .mode-sub { font-size: 12px; color: var(--text-dim); font-weight: 600; margin-top: 2px; }
+.mode-info b { color: var(--text); }
+.timer {
+  font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;
+  font-variant-numeric: tabular-nums; color: var(--text);
+}
+.timer.low { color: var(--danger); animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.55} }
+.streak-line { font-size: 16px; font-weight: 700; }
+.streak-line .fire { font-size: 18px; }
+.streak-line b { color: var(--warn); font-size: 20px; }
+.daily-line { font-size: 16px; font-weight: 700; }
+.daily-line b { color: var(--primary); }
 
 .source-tiles { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 20px; }
 .tile {
