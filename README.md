@@ -77,6 +77,36 @@ Add to Home screen*.
 Once installed it appears as a normal app icon and opens without browser
 chrome. Because everything is cached, it keeps working with no connection.
 
+## Deploying
+
+The app is static, so any static host works. Two set-and-forget options:
+
+### Vercel (served from the domain root)
+
+No build step is needed; `vercel.json` just sets PWA-friendly headers.
+
+- **Dashboard:** import the GitHub repo at <https://vercel.com/new>, keep the
+  defaults (Framework preset: *Other*, no build command), and deploy. Vercel
+  gives you a `https://<project>.vercel.app` URL and redeploys on every push.
+  Production deploys track your production branch (usually `main`); other
+  branches get preview URLs — set this branch as Production in the project's
+  Git settings if you want its URL to be the stable one.
+- **CLI (fastest):**
+  ```bash
+  npm i -g vercel
+  vercel          # first run links the project and gives a preview URL
+  vercel --prod   # promote to the production URL
+  ```
+
+### GitHub Pages (served from /WordsFromWord/)
+
+`.github/workflows/deploy-pages.yml` publishes the site on every push. Enable
+it once under **Settings → Pages → Build and deployment → Source: GitHub
+Actions** (the workflow also tries to enable this automatically). The URL is
+`https://<user>.github.io/WordsFromWord/`.
+
+Both hosts serve over HTTPS, so the install prompt and offline caching work.
+
 ## Project structure
 
 ```
